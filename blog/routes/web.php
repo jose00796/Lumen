@@ -2,6 +2,8 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
+use App\Http\Controllers\UsersController;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -16,3 +18,10 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('/key', function(){
+    return \illuminate\Support\Str::random(32) ;
+    //return str_random(lenght:32);
+});
+
+$router->get('/users', ['uses'=> 'UsersController@index']);
