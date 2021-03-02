@@ -7,10 +7,11 @@ class UsersController extends Controller
 {
     function index()
     {
-        $user = new User();
+        /*$user = new User();
         $user->name = 'Esmeralda';
-        $user->email = 'esmeralda@gmail.com';
+        $user->email = 'esmeralda@gmail.com';*/
         
-        return response()->json([$user]);
+        $users = User::all();
+        return response()->json([$users]);
     }
 }
